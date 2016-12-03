@@ -36,8 +36,8 @@ class Company
 
     /**
      * @var array
-     *
-     * @ORM\Column(name="currency", type="simple_array")
+     * @ORM\ManyToOne(targetEntity="Currency", inversedBy="companies")
+     * @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
      */
     private $currency;
 
