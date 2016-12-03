@@ -2,6 +2,7 @@
 
 namespace Respant\InvestBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,15 @@ class Type
      */
     private $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Company", mappedBy="company")
+     */
+    private $companies;
+
+    public function __construct()
+    {
+        $this->companies = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -93,5 +103,38 @@ class Type
     {
         return $this->description;
     }
-}
 
+    /**
+     * Add company
+     *
+     * @param \Respant\InvestBundle\Entity\Company $company
+     *
+     * @return Type
+     */
+    public function addCompany(\Respant\InvestBundle\Entity\Company $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Remove company
+     *
+     * @param \Respant\InvestBundle\Entity\Company $company
+     */
+    public function removeCompany(\Respant\InvestBundle\Entity\Company $company)
+    {
+        $this->companies->removeElement($company);
+    }
+
+    /**
+     * Get companies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
+}

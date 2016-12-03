@@ -29,9 +29,8 @@ class Company
     private $name;
 
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="type", type="object")
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="companies")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
 
@@ -156,4 +155,3 @@ class Company
         return $this->startDate;
     }
 }
-
