@@ -41,9 +41,14 @@ class Currency
      */
     private $companies;
 
+
     public function __construct()
     {
         $this->companies = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->name;
     }
 
     /**

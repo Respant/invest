@@ -41,9 +41,14 @@ class Type
      */
     private $companies;
 
+
     public function __construct()
     {
         $this->companies = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->title;
     }
 
     /**
