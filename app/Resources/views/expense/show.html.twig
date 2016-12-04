@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Expense</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ expense.id }}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{{ expense.company }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ expense.amount }}</td>
+            </tr>
+            <tr>
+                <th>Interestrate</th>
+                <td>{{ expense.interestRate }}</td>
+            </tr>
+            <tr>
+                <th>Closed</th>
+                <td>{% if expense.closed %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Extrafee</th>
+                <td>{{ expense.extraFee }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if expense.date %}{{ expense.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('expense_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('expense_edit', { 'id': expense.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
