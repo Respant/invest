@@ -29,6 +29,20 @@ class Company
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, unique=false)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, unique=false)
+     */
+    private $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Type", inversedBy="companies")
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
@@ -153,5 +167,53 @@ class Company
     public function getStartDate()
     {
         return $this->startDate;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Company
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Company
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
