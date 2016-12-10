@@ -26,7 +26,7 @@ class CurrencyController extends Controller
 
         $currencies = $em->getRepository('RespantInvestBundle:Currency')->findAll();
 
-        return $this->render('currency/index.html.twig', array(
+        return $this->render('RespantInvestBundle:Currency:index.html.twig', array(
             'currencies' => $currencies,
         ));
     }
@@ -51,7 +51,7 @@ class CurrencyController extends Controller
             return $this->redirectToRoute('currency_show', array('id' => $currency->getId()));
         }
 
-        return $this->render('currency/new.html.twig', array(
+        return $this->render('RespantInvestBundle:Currency:new.html.twig', array(
             'currency' => $currency,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class CurrencyController extends Controller
     {
         $deleteForm = $this->createDeleteForm($currency);
 
-        return $this->render('currency/show.html.twig', array(
+        return $this->render('RespantInvestBundle:Currency:show.html.twig', array(
             'currency' => $currency,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class CurrencyController extends Controller
             return $this->redirectToRoute('currency_edit', array('id' => $currency->getId()));
         }
 
-        return $this->render('currency/edit.html.twig', array(
+        return $this->render('RespantInvestBundle:Currency:edit.html.twig', array(
             'currency' => $currency,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

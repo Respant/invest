@@ -26,7 +26,7 @@ class TypeController extends Controller
 
         $types = $em->getRepository('RespantInvestBundle:Type')->findAll();
 
-        return $this->render('type/index.html.twig', array(
+        return $this->render('RespantInvestBundle:Type:index.html.twig', array(
             'types' => $types,
         ));
     }
@@ -51,7 +51,7 @@ class TypeController extends Controller
             return $this->redirectToRoute('type_show', array('id' => $type->getId()));
         }
 
-        return $this->render('type/new.html.twig', array(
+        return $this->render('RespantInvestBundle:Type:new.html.twig', array(
             'type' => $type,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class TypeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($type);
 
-        return $this->render('type/show.html.twig', array(
+        return $this->render('RespantInvestBundle:Type:show.html.twig', array(
             'type' => $type,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class TypeController extends Controller
             return $this->redirectToRoute('type_edit', array('id' => $type->getId()));
         }
 
-        return $this->render('type/edit.html.twig', array(
+        return $this->render('RespantInvestBundle:Type:edit.html.twig', array(
             'type' => $type,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

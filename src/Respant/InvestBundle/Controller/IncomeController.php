@@ -26,7 +26,7 @@ class IncomeController extends Controller
 
         $incomes = $em->getRepository('RespantInvestBundle:Income')->findAll();
 
-        return $this->render('income/index.html.twig', array(
+        return $this->render('RespantInvestBundle:Income:index.html.twig', array(
             'incomes' => $incomes,
         ));
     }
@@ -51,7 +51,7 @@ class IncomeController extends Controller
             return $this->redirectToRoute('income_show', array('id' => $income->getId()));
         }
 
-        return $this->render('income/new.html.twig', array(
+        return $this->render('RespantInvestBundle:Income:new.html.twig', array(
             'income' => $income,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class IncomeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($income);
 
-        return $this->render('income/show.html.twig', array(
+        return $this->render('RespantInvestBundle:Income:show.html.twig', array(
             'income' => $income,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class IncomeController extends Controller
             return $this->redirectToRoute('income_edit', array('id' => $income->getId()));
         }
 
-        return $this->render('income/edit.html.twig', array(
+        return $this->render('RespantInvestBundle:Income:edit.html.twig', array(
             'income' => $income,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
