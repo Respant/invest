@@ -9,3 +9,25 @@ body {
 footer {
     margin: 50px 0;
 }
+
+.btn-create {
+    float: right;
+}
+
+.btn-back {
+    float: left;
+    margin: 0px 10px 10px 0px;
+}
+
+.btn-edit {
+    float: left;
+}
+
+.btn-remove {
+    float: right;
+    margin: 0px 10px 10px 0px;
+}
+
+.actions a {
+    margin-right: 5px;
+}

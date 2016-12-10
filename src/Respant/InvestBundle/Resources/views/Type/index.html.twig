@@ -1,41 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Types list</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Types list</h1>
+            <a href="{{ path('type_new') }}" class="btn btn-primary btn-create" role="button">Create a new type</a>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for type in types %}
-            <tr>
-                <td><a href="{{ path('type_show', { 'id': type.id }) }}">{{ type.id }}</a></td>
-                <td>{{ type.title }}</td>
-                <td>{{ type.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('type_show', { 'id': type.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('type_edit', { 'id': type.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('type_new') }}">Create a new type</a>
-        </li>
-    </ul>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for type in types %}
+                    <tr>
+                        <td>{{ type.id }}</td>
+                        <td>{{ type.title }}</td>
+                        <td>{{ type.description }}</td>
+                        <td class="actions">
+                            <a href="{{ path('type_show', { 'id': type.id }) }}">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a href="{{ path('type_edit', { 'id': type.id }) }}">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}
