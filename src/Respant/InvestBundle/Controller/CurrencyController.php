@@ -48,7 +48,7 @@ class CurrencyController extends Controller
             $em->persist($currency);
             $em->flush($currency);
 
-            return $this->redirectToRoute('currency_show', array('id' => $currency->getId()));
+            return $this->redirectToRoute('currency_index');
         }
 
         return $this->render('RespantInvestBundle:Currency:new.html.twig', array(
@@ -88,7 +88,7 @@ class CurrencyController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('currency_edit', array('id' => $currency->getId()));
+            return $this->redirectToRoute('currency_index');
         }
 
         return $this->render('RespantInvestBundle:Currency:edit.html.twig', array(

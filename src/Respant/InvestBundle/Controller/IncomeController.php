@@ -48,7 +48,7 @@ class IncomeController extends Controller
             $em->persist($income);
             $em->flush($income);
 
-            return $this->redirectToRoute('income_show', array('id' => $income->getId()));
+            return $this->redirectToRoute('income_index');
         }
 
         return $this->render('RespantInvestBundle:Income:new.html.twig', array(
@@ -88,7 +88,7 @@ class IncomeController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('income_edit', array('id' => $income->getId()));
+            return $this->redirectToRoute('income_index');
         }
 
         return $this->render('RespantInvestBundle:Income:edit.html.twig', array(

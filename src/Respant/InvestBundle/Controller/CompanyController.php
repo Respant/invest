@@ -48,7 +48,7 @@ class CompanyController extends Controller
             $em->persist($company);
             $em->flush($company);
 
-            return $this->redirectToRoute('company_show', array('id' => $company->getId()));
+            return $this->redirectToRoute('company_index');
         }
 
         return $this->render('RespantInvestBundle:Company:new.html.twig', array(
@@ -88,7 +88,7 @@ class CompanyController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('company_edit', array('id' => $company->getId()));
+            return $this->redirectToRoute('company_index');
         }
 
         return $this->render('RespantInvestBundle:Company:edit.html.twig', array(

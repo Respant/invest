@@ -48,7 +48,7 @@ class TypeController extends Controller
             $em->persist($type);
             $em->flush($type);
 
-            return $this->redirectToRoute('type_show', array('id' => $type->getId()));
+            return $this->redirectToRoute('type_index');
         }
 
         return $this->render('RespantInvestBundle:Type:new.html.twig', array(
@@ -88,7 +88,7 @@ class TypeController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('type_edit', array('id' => $type->getId()));
+            return $this->redirectToRoute('type_index');
         }
 
         return $this->render('RespantInvestBundle:Type:edit.html.twig', array(

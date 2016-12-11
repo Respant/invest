@@ -13,7 +13,13 @@ class CompanyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('startDate')->add('type')->add('currency')        ;
+        $builder
+            ->add('name')
+            ->add('url')
+            ->add('description')
+            ->add('startDate')
+            ->add('type')
+            ->add('currency');
     }
     
     /**

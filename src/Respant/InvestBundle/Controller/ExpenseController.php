@@ -48,7 +48,7 @@ class ExpenseController extends Controller
             $em->persist($expense);
             $em->flush($expense);
 
-            return $this->redirectToRoute('expense_show', array('id' => $expense->getId()));
+            return $this->redirectToRoute('expense_index');
         }
 
         return $this->render('RespantInvestBundle:Expense:new.html.twig', array(
@@ -88,7 +88,7 @@ class ExpenseController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('expense_edit', array('id' => $expense->getId()));
+            return $this->redirectToRoute('expense_index');
         }
 
         return $this->render('RespantInvestBundle:Expense:edit.html.twig', array(
