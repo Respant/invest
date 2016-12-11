@@ -39,6 +39,13 @@ class Expense
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=255, unique=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="interestRate", type="decimal", precision=5, scale=2)
      */
     private $interestRate;
@@ -216,5 +223,29 @@ class Expense
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Expense
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

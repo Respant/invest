@@ -12,6 +12,7 @@
                     <th>Id</th>
                     <th>Company</th>
                     <th>Amount</th>
+                    <th>Description</th>
                     <th>Interestrate</th>
                     <th>Closed</th>
                     <th>Extrafee</th>
@@ -25,6 +26,7 @@
                         <td><a href="{{ path('expense_show', { 'id': expense.id }) }}">{{ expense.id }}</a></td>
                         <td>{{ expense.company }}</td>
                         <td>{{ expense.amount }}</td>
+                        <td>{{ expense.description }}</td>
                         <td>{{ expense.interestRate }}</td>
                         <td>{% if expense.closed %}Yes{% else %}No{% endif %}</td>
                         <td>{{ expense.extraFee }}</td>
