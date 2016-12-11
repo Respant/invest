@@ -8,29 +8,29 @@
 
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Code</th>
-                        <th>Actions</th>
-                    </tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Actions</th>
+                </tr>
                 </thead>
                 <tbody>
-                    {% for currency in currencies %}
-                        <tr>
-                            <td>{{ currency.id }}</td>
-                            <td>{{ currency.name }}</td>
-                            <td>{{ currency.code }}</td>
-                            <td class="actions">
-                                <a href="{{ path('currency_show', { 'id': currency.id }) }}">
-                                    <span class="glyphicon glyphicon-eye-open"></span>
-                                </a>
-                                <a href="{{ path('currency_edit', { 'id': currency.id }) }}">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
+                {% for currency in currencies %}
+                    <tr>
+                        <td>{{ currency.id }}</td>
+                        <td>{{ currency.name }}</td>
+                        <td>{{ currency.code }}</td>
+                        <td class="actions">
+                            <a href="{{ path('currency_show', { 'id': currency.id }) }}">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a href="{{ path('currency_edit', { 'id': currency.id }) }}">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>
