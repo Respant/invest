@@ -24,7 +24,8 @@ class Expense
     /**
      * @var int
      *
-     * @ORM\Column(name="company", type="integer")
+     * @ORM\ManyToOne(targetEntity="Company", inversedBy="expenses")
+     * @ORM\JoinColumn(name="company_id", referencedColumnName="id")
      */
     private $company;
 
@@ -63,39 +64,14 @@ class Expense
      */
     private $date;
 
-
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set company
-     *
-     * @param integer $company
-     *
-     * @return Expense
-     */
-    public function setCompany($company)
-    {
-        $this->company = $company;
-
-        return $this;
-    }
-
-    /**
-     * Get company
-     *
-     * @return int
-     */
-    public function getCompany()
-    {
-        return $this->company;
     }
 
     /**
@@ -163,7 +139,7 @@ class Expense
     /**
      * Get closed
      *
-     * @return bool
+     * @return boolean
      */
     public function getClosed()
     {
@@ -217,5 +193,28 @@ class Expense
     {
         return $this->date;
     }
-}
 
+    /**
+     * Set company
+     *
+     * @param \Respant\InvestBundle\Entity\Company $company
+     *
+     * @return Expense
+     */
+    public function setCompany(\Respant\InvestBundle\Entity\Company $company = null)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return \Respant\InvestBundle\Entity\Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+}

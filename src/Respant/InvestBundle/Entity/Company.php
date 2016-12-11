@@ -62,6 +62,10 @@ class Company
      */
     private $startDate;
 
+    public function __toString(){
+        return $this->name;
+    }
+
 
     /**
      * Get id
